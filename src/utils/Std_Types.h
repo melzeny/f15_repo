@@ -20,13 +20,13 @@ typedef float float32;
 
 typedef enum
 {
-	STD_low,
+	STD_low=0,
 	STD_high
 }STD_levelType;
 
 typedef enum
 {
-	false,
+	false=0,
 	true
 }boolean;
 
