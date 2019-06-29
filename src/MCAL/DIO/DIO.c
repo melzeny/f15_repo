@@ -8,7 +8,6 @@
 #include "../../utils/Std_Types.h"
 
 #include "DIO_hw.h"
-#include "../../config/DIO_cfg.h"
 #include "DIO_types.h"
 #include "DIO.h"
 

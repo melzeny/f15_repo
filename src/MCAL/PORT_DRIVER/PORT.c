@@ -6,8 +6,9 @@
  */
 #include "PORT_hw.h"
 #include "PORT_Types.h"
-#include "../../config/PORT_cfg.h"
 #include "PORT.h"
+
+extern PORT_PinDirType PortCfg ;
 
 void PORT_init(void)
 {
