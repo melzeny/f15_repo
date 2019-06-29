@@ -8,6 +8,7 @@
 
 void lab_01_dio(void)
 {
+	PORT_init();
 	while(1)
 	{
 		if(Dio_ReadChannel(Dio_Channel_D0) == STD_high)
