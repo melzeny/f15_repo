@@ -8,6 +8,8 @@
 #ifndef F15_REPO_SRC_MCAL_PORT_DRIVER_PORT_TYPES_H_
 #define F15_REPO_SRC_MCAL_PORT_DRIVER_PORT_TYPES_H_
 
+#include "../../utils/Std_Types.h"
+
 typedef struct
 {
 	uint8 PinDir_A0:1;

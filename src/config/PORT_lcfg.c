@@ -10,7 +10,7 @@
 #define DIR_INPUT			0
 #define DIR_OUTPUT			1
 
-PORT_PinDirType PortCfg = {
+const PORT_PinDirType PortCfg = {{
 
 	/*Pin_Dir_A0 */	DIR_INPUT,
 	/*Pin_Dir_A1 */	DIR_INPUT,
@@ -44,7 +44,7 @@ PORT_PinDirType PortCfg = {
 	/*Pin_Dir_D2 */	DIR_INPUT,
 	/*Pin_Dir_D3 */	DIR_INPUT,
 	/*Pin_Dir_D4 */	DIR_INPUT,
-	/*Pin_Dir_D5 */	DIR_INPUT,
-	/*Pin_Dir_D6 */	DIR_INPUT,
-	/*Pin_Dir_D7 */	DIR_INPUT
-};
+	/*Pin_Dir_D5 */	DIR_OUTPUT,
+	/*Pin_Dir_D6 */	DIR_OUTPUT,
+	/*Pin_Dir_D7 */	DIR_OUTPUT
+}};
