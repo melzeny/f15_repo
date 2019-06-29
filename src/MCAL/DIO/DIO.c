@@ -11,10 +11,7 @@
 #include "DIO_types.h"
 #include "DIO.h"
 
-void DIO_init(void)
-{
 
-}
 STD_levelType Dio_ReadChannel(Dio_ChannelType ChannelId)
 {
 	STD_levelType ret;

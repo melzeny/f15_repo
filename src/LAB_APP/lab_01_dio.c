@@ -22,7 +22,7 @@ void lab_01_dio(void)
 			if(PrevStatus == STD_low)
 			/*led on */
 			{
-				Dio_FlipChannel(Dio_Channel_D7,STD_high);
+				Dio_FlipChannel(Dio_Channel_D7);
 			}
 		}
 		PrevStatus = CurrentStatus;
