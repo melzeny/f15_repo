@@ -10,10 +10,10 @@
 
 #include "../../utils/Std_Types.h"
 
-void SevSeg_DisplayNum(uint8 Num);
-void SevSeg_enable_1();
-void SevSeg_enable_2();
-void SevSeg_disable_1();
-void SevSeg_disable_2();
-
+/*functions prototypes*/
+void SevSeg_DisplayNum(uint8 DisplayedNum);
+void SevSeg_enable(void);
+void SevSeg_disable(void);
+void SevSeg_enable_2(void);
+void SevSeg_disable_2(void);
 #endif /* F15_REPO_SRC_EHAL_SEVSEG_SEVSEG_H_ */
