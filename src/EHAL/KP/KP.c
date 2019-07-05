@@ -14,6 +14,14 @@ static void KP_CheckCol(uint8 ActivatedRow);
 
 static uint8 PressedSwitch = 255 ;
 
+void KP_init(void)
+{
+	/* attach Internal Pull-up Resistor*/
+	Dio_WriteChannel(KP_PIN_COL_0,STD_high);
+	Dio_WriteChannel(KP_PIN_COL_1,STD_high);
+	Dio_WriteChannel(KP_PIN_COL_2,STD_high);
+	Dio_WriteChannel(KP_PIN_COL_3,STD_high);
+}
 uint8 KP_getPressedSwitch(void)
 {
 	PressedSwitch = 255;

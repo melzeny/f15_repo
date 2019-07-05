@@ -13,10 +13,10 @@
 #define KP_PIN_ROW_2		Dio_Channel_A2
 #define KP_PIN_ROW_3		Dio_Channel_A3
 
-#define KP_PIN_COL_0		Dio_Channel_B0
-#define KP_PIN_COL_1		Dio_Channel_B1
-#define KP_PIN_COL_2		Dio_Channel_B2
-#define KP_PIN_COL_3		Dio_Channel_B3
+#define KP_PIN_COL_0		Dio_Channel_A4
+#define KP_PIN_COL_1		Dio_Channel_A5
+#define KP_PIN_COL_2		Dio_Channel_A6
+#define KP_PIN_COL_3		Dio_Channel_A7
 
 
 #define KP_ACTIVE_TYPE		STD_low

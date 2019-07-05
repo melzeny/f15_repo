@@ -12,10 +12,10 @@
 
 const PORT_PinDirType PortCfg = {{
 
-	/*Pin_Dir_A0 */	DIR_INPUT,
-	/*Pin_Dir_A1 */	DIR_INPUT,
-	/*Pin_Dir_A2 */	DIR_INPUT,
-	/*Pin_Dir_A3 */	DIR_INPUT,
+	/*Pin_Dir_A0 */	DIR_OUTPUT,
+	/*Pin_Dir_A1 */	DIR_OUTPUT,
+	/*Pin_Dir_A2 */	DIR_OUTPUT,
+	/*Pin_Dir_A3 */	DIR_OUTPUT,
 	/*Pin_Dir_A4 */	DIR_INPUT,
 	/*Pin_Dir_A5 */	DIR_INPUT,
 	/*Pin_Dir_A6 */	DIR_INPUT,
@@ -30,21 +30,21 @@ const PORT_PinDirType PortCfg = {{
 	/*Pin_Dir_B6 */	DIR_INPUT,
 	/*Pin_Dir_B7 */	DIR_INPUT,
 
-	/*Pin_Dir_C0 */	DIR_INPUT,
-	/*Pin_Dir_C1 */	DIR_INPUT,
-	/*Pin_Dir_C2 */	DIR_INPUT,
-	/*Pin_Dir_C3 */	DIR_INPUT,
-	/*Pin_Dir_C4 */	DIR_INPUT,
-	/*Pin_Dir_C5 */	DIR_INPUT,
-	/*Pin_Dir_C6 */	DIR_INPUT,
-	/*Pin_Dir_C7 */	DIR_INPUT,
+	/*Pin_Dir_C0 */	DIR_OUTPUT,
+	/*Pin_Dir_C1 */	DIR_OUTPUT,
+	/*Pin_Dir_C2 */	DIR_OUTPUT,
+	/*Pin_Dir_C3 */	DIR_OUTPUT,
+	/*Pin_Dir_C4 */	DIR_OUTPUT,
+	/*Pin_Dir_C5 */	DIR_OUTPUT,
+	/*Pin_Dir_C6 */	DIR_OUTPUT,
+	/*Pin_Dir_C7 */	DIR_OUTPUT,
 
-	/*Pin_Dir_D0 */	DIR_INPUT,
-	/*Pin_Dir_D1 */	DIR_INPUT,
+	/*Pin_Dir_D0 */	DIR_OUTPUT,
+	/*Pin_Dir_D1 */	DIR_OUTPUT,
 	/*Pin_Dir_D2 */	DIR_INPUT,
 	/*Pin_Dir_D3 */	DIR_INPUT,
 	/*Pin_Dir_D4 */	DIR_INPUT,
-	/*Pin_Dir_D5 */	DIR_OUTPUT,
-	/*Pin_Dir_D6 */	DIR_OUTPUT,
-	/*Pin_Dir_D7 */	DIR_OUTPUT
+	/*Pin_Dir_D5 */	DIR_INPUT,
+	/*Pin_Dir_D6 */	DIR_INPUT,
+	/*Pin_Dir_D7 */	DIR_INPUT
 }};

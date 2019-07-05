@@ -42,12 +42,12 @@ void SevSeg_DisplayNum(uint8 DisplayedNum)
 }
 void SevSeg_enable_1(void)
 {
-	Dio_WriteChannel(SevSeg_PIN_EN,SevSeg_COMMON_TYPE);/*enable pin */
+	Dio_WriteChannel(SevSeg_PIN_EN_1,SevSeg_COMMON_TYPE);/*enable pin */
 
 }
 void SevSeg_disable_1(void)
 {
-	Dio_WriteChannel(SevSeg_PIN_EN,!SevSeg_COMMON_TYPE);/*enable pin */
+	Dio_WriteChannel(SevSeg_PIN_EN_1,!SevSeg_COMMON_TYPE);/*enable pin */
 
 }
 void SevSeg_enable_2(void)
