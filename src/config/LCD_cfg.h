@@ -25,8 +25,8 @@
 #define LCD_PIN_D6			Dio_Channel_A6
 #define LCD_PIN_D7			Dio_Channel_A7
 
-#define LCD_PIN_EN			Dio_Channel_C0
-#define LCD_PIN_RS			Dio_Channel_C1
-#define LCD_PIN_RW			Dio_Channel_C2
+#define LCD_PIN_RS			Dio_Channel_B1
+#define LCD_PIN_RW			Dio_Channel_B2
+#define LCD_PIN_EN			Dio_Channel_B3
 
 #endif /* F15_REPO_SRC_CONFIG_LCD_CFG_H_ */

@@ -41,43 +41,43 @@ void Dio_WriteChannel(Dio_ChannelType ChannelId, STD_levelType Level)
 	switch(PortId)
 	{
 	case Dio_Port_A:
-		if(Level == STD_high)
-		{
-			Set_Bit(PORTA_Reg,ChannelPos);
-		}
-		else
+		if(Level == STD_low)
 		{
 			Clr_Bit(PORTA_Reg,ChannelPos);
 		}
+		else
+		{
+			Set_Bit(PORTA_Reg,ChannelPos);
+		}
 		break;
 	case Dio_Port_B:
-		if(Level == STD_high)
-		{
-			Set_Bit(PORTB_Reg,ChannelPos);
-		}
-		else
+		if(Level == STD_low)
 		{
 			Clr_Bit(PORTB_Reg,ChannelPos);
 		}
+		else
+		{
+			Set_Bit(PORTB_Reg,ChannelPos);
+		}
 		break;
 	case Dio_Port_C:
-		if(Level == STD_high)
-		{
-			Set_Bit(PORTC_Reg,ChannelPos);
-		}
-		else
+		if(Level == STD_low)
 		{
 			Clr_Bit(PORTC_Reg,ChannelPos);
 		}
+		else
+		{
+			Set_Bit(PORTC_Reg,ChannelPos);
+		}
 		break;
 	case Dio_Port_D:
-		if(Level == STD_high)
+		if(Level == STD_low)
 		{
-			Set_Bit(PORTD_Reg,ChannelPos);
+			Clr_Bit(PORTD_Reg,ChannelPos);
 		}
 		else
 		{
-			Clr_Bit(PORTD_Reg,ChannelPos);
+			Set_Bit(PORTD_Reg,ChannelPos);
 		}
 		break;
 	}

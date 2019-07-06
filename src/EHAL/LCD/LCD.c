@@ -2,7 +2,7 @@
  * LCD.c
  *
  *  Created on: Jul 5, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: John Medhat
  */
 /********************************************/
 /*			Local Defines					*/
@@ -21,11 +21,10 @@
 /********************************************/
 /*			Local Functions ProtoTypes		*/
 /********************************************/
- inline static void LCD_writePort(uint8 PortData);
-
- /*******************************************/
- /*			 Functions Definitions	 		*/
- /*******************************************/
+inline static void LCD_writePort(uint8 PortData);
+/*******************************************/
+/*			 Functions Definitions	 		*/
+/*******************************************/
 void LCD_init(void)
 {
 	_delay_ms(15);
@@ -34,8 +33,8 @@ void LCD_init(void)
 
 
 #elif LCD_MODE_PIN == LCD_MODE_4_PIN
-	LCD_writeCmd(0x33);
-	LCD_writeCmd(0x32);
+	LCD_writeCmd(0x23);
+	LCD_writeCmd(0x22);
 	LCD_writeCmd(0x28);
 #endif
 	LCD_writeCmd(0x0E);
@@ -44,29 +43,26 @@ void LCD_init(void)
 }
 void LCD_writeData(uint8 Data)
 {
+	/*write RS = 1*/
+	Dio_WriteChannel(LCD_PIN_RS,STD_high);
+
+	/*write RW = 0*/
+	Dio_WriteChannel(LCD_PIN_RW,STD_low);
+	LCD_writePort(Data);
+}
+
+void LCD_writeCmd(uint8 Cmd)
+{
 	/*write RS = 0*/
 	Dio_WriteChannel(LCD_PIN_RS,STD_low);
 
 	/*write RW = 0*/
 	Dio_WriteChannel(LCD_PIN_RW,STD_low);
 
-	LCD_writePort(Data);
-}
-
-void LCD_writeCmd(uint8 Cmd)
-{
-	/*write RS = 1*/
-	Dio_WriteChannel(LCD_PIN_RS,STD_high);
-
-	/*write RW = 0*/
-	Dio_WriteChannel(LCD_PIN_RW,STD_low);
-
 	LCD_writePort(Cmd);
+	_delay_us(100);
 }
-
-
-
- inline static void LCD_writePort(uint8 PortData)
+inline static void LCD_writePort(uint8 PortData)
 {
 #if LCD_MODE_PIN == LCD_MODE_8_PIN
 	Dio_WriteChannel(LCD_PIN_D0,Get_Bit(PortData,0));
@@ -85,7 +81,7 @@ void LCD_writeCmd(uint8 Cmd)
 
 	/*latch Enable PIn*/
 	Dio_WriteChannel(LCD_PIN_EN,STD_high);
-	_delay_us(0.45);
+	_delay_us(2);
 	Dio_WriteChannel(LCD_PIN_EN,STD_low);
 
 	Dio_WriteChannel(LCD_PIN_D4,Get_Bit(PortData,0));
@@ -96,6 +92,6 @@ void LCD_writeCmd(uint8 Cmd)
 #endif
 	/*latch Enable PIn*/
 	Dio_WriteChannel(LCD_PIN_EN,STD_high);
-	_delay_us(0.45);
+	_delay_us(2);
 	Dio_WriteChannel(LCD_PIN_EN,STD_low);
 }
