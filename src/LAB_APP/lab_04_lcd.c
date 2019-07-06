@@ -11,10 +11,6 @@ void lab_04_lcd(void)
 {
 	PORT_init();
 	LCD_init();
-	LCD_writeData('L');
-	LCD_writeData('C');
-	LCD_writeData('D');
-	LCD_writeData('%');
 
 	while(1)
 	{

@@ -2,8 +2,9 @@
  * LCD.c
  *
  *  Created on: Jul 5, 2019
- *      Author: John Medhat
+ *      Author: John Medhat _ Mostafa Serag
  */
+
 /********************************************/
 /*			Local Defines					*/
 /********************************************/
@@ -94,4 +95,39 @@ inline static void LCD_writePort(uint8 PortData)
 	Dio_WriteChannel(LCD_PIN_EN,STD_high);
 	_delay_us(2);
 	Dio_WriteChannel(LCD_PIN_EN,STD_low);
+}
+void LCD_writeString(uint8* str, uint8 row, uint8 col)
+{
+	uint8 i=0;
+	LCD_goTo(row, col);
+	while(str[i] != '\0' && i < 32)
+	{
+		if(i==16){LCD_goTo(1,0);}
+		LCD_writeData(str[i]);
+		i++;
+	}
+}
+void LCD_goTo( uint8 row, uint8 col)
+{
+	/*Ac -> DDRAM[row][col]*/
+	/* LCD_writeCmd( 0x80 | col | (row<<6) ); */
+	LCD_writeCmd( 0x80 + col + row*(0x40));
+}
+void LCD_storeCustomChar(uint8* CustomChar, uint8 Index)
+{
+	uint8 i;
+	uint8 CGRamAddr = Index *8;
+	LCD_writeCmd(0x40 | CGRamAddr);
+	for(i=0;i<8;i++)
+	{
+		LCD_writeData(CustomChar[i]);
+	}
+	/*Return Home*/
+	LCD_writeCmd(0x02);
+
+}
+void LCD_displayCustomChar(uint8 index,uint8 row, uint8 col)
+{
+	LCD_goTo(row, col);
+	LCD_writeData(index);
 }
