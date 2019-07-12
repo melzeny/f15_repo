@@ -18,6 +18,7 @@ typedef signed long int sint32;
 
 typedef float float32;
 
+
 typedef enum
 {
 	STD_low=0,
@@ -30,7 +31,9 @@ typedef enum
 	true
 }boolean;
 
+#define ENABLE				1
+#define DISABLE				0
 
-
+typedef void(*Ptr2FuncType)(void);
 
 #endif /* UTILS_STD_TYPES_H_ */
