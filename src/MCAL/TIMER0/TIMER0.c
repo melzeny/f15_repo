@@ -6,3 +6,21 @@
  */
 
 
+void TIMER0_init(void)
+{
+
+
+}
+void TIMER0_enInterrupt(void)
+{
+
+}
+void TIMER0_disInterrupt(void)
+{
+
+}
+void TIMER0_setCallBackFunc(Ptr2FuncType FuncPtr)
+{
+
+
+}
