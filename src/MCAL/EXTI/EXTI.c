@@ -48,7 +48,6 @@ void EXTI_init(void)
 #endif
 	EXTI_enInterrupt(EXTI_int2);
 #endif
-	GI_en();
 }
 void EXTI_disInterrupt(EXTI_IntType IntNum)
 {

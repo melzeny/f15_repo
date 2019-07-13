@@ -8,6 +8,7 @@
  * 1-toggle led
  * 2- step down counter
  * */
+#include "../MCAL/GLOBAL_INTERRUPT/Global_Int.h"
 #include "../MCAL/EXTI/EXTI.h"
 #include "../MCAL/DIO/DIO.h"
 
@@ -18,6 +19,7 @@ static void Task_1(void)
 }
 void lab_05_exti(void)
 {
+	GI_en();
 	EXTI_setCallBackFunc(EXTI_int0,&Task_1);
 	EXTI_init();
 
