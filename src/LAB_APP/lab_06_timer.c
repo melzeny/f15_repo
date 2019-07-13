@@ -14,6 +14,7 @@
 
 #include "../EHAL/LCD/LCD.h"
 #include "../EHAL/KP/KP.h"
+#include "../EHAL/BcdSevSeg/BcdSevSeg.h"
 #include "../utils/Interrupts.h"
 
 void lab_06_timer(void)
@@ -43,5 +44,29 @@ void lab_06_timer(void)
 
 void ISR(TIMER0_COMP)
 {
-	Dio_FlipChannel(Dio_Channel_D6);
+	static uint8 counter =0;
+	static uint8 DisplayedNum = 0;
+	static uint16 DisplayedNum_Counter=0;
+	counter++;
+	DisplayedNum_Counter++;
+	if(counter == 1)
+	{
+		BcdSevSeg_disable_2();
+		BcdSevSeg_DisplayNum(DisplayedNum%10);
+		BcdSevSeg_enable_1();
+
+	}
+	else if(counter == 2)
+	{
+		BcdSevSeg_disable_1();
+		BcdSevSeg_DisplayNum(DisplayedNum/10);
+		BcdSevSeg_enable_2();
+		counter=0;
+	}
+	if(DisplayedNum_Counter == 100)
+	{
+		DisplayedNum++;
+		DisplayedNum_Counter=0;
+	}
+
 }
