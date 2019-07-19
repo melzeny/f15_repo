@@ -33,28 +33,6 @@ void Task_InputPassword(void)
 	/*periodic Task : 30ms*/
 
 }
-/*Timer0 ISR periodicity: 10ms*/
-ISR(TIMER0_COMP)
-{
-	static uint32 counter =0 ;
-	if(counter % 1 == 0)
-	{
-		Task_refreshBcdSevSeg();
-	}
-	if(counter % 3 == 0)
-	{
-		Task_InputPassword();
-	}
-	if(counter % 100 == 0)
-	{
-		Task_updateCounter();
-
-	}
-	counter++;
-}
-
-
-
 
 
 

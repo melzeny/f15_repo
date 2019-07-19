@@ -33,8 +33,8 @@ typedef enum
 
 typedef enum
 {
-	Suspended,
-	Active
+	STD_suspended,
+	STD_active
 }STD_StatusType;
 
 #define ENABLE				1

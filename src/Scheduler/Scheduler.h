@@ -8,6 +8,8 @@
 #ifndef F15_REPO_SRC_SCHEDULER_SCHEDULER_H_
 #define F15_REPO_SRC_SCHEDULER_SCHEDULER_H_
 
+#include "../utils/Std_Types.h"
+
 void Scheduler_init(void);
 void Scheduler_createTask(uint8 Id,
 		Ptr2FuncType TaskPtr,
