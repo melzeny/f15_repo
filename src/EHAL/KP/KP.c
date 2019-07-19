@@ -19,11 +19,13 @@ static const uint8 MapArr[16] = {
 		KP_BUTON_12,KP_BUTON_13,KP_BUTON_14,KP_BUTON_15};
 void KP_init(void)
 {
+#if KP_INTERNAL_PULL_UP_RESISTOR_EN
 	/* attach Internal Pull-up Resistor*/
 	Dio_WriteChannel(KP_PIN_COL_0,STD_high);
 	Dio_WriteChannel(KP_PIN_COL_1,STD_high);
 	Dio_WriteChannel(KP_PIN_COL_2,STD_high);
 	Dio_WriteChannel(KP_PIN_COL_3,STD_high);
+#endif
 }
 uint8 KP_getPressedSwitch(void)
 {

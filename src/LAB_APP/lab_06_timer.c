@@ -10,7 +10,7 @@
 #include "../MCAL/GLOBAL_INTERRUPT/Global_Int.h"
 #include "../MCAL/PORT_DRIVER/PORT.h"
 #include "../MCAL/DIO/DIO.h"
-#include "../MCAL/TIMER0/TIMER0.h"
+#include "../MCAL/TIMER2/TIMER2.h"
 
 #include "../EHAL/LCD/LCD.h"
 #include "../EHAL/KP/KP.h"
@@ -26,7 +26,7 @@ void lab_06_timer(void)
 	KP_init();
 	LCD_init();
 	GI_en();
-	TIMER0_init();
+	TIMER2_init();
 	while(1)
 	{
 		CurrPressedButton = KP_getPressedSwitch();
@@ -42,7 +42,7 @@ void lab_06_timer(void)
 	}
 }
 
-void ISR(TIMER0_COMP)
+void ISR(TIMER2_COMP)
 {
 	static uint8 counter =0;
 	static uint8 DisplayedNum = 0;

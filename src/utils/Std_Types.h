@@ -31,6 +31,12 @@ typedef enum
 	true
 }boolean;
 
+typedef enum
+{
+	Suspended,
+	Active
+}STD_StatusType;
+
 #define ENABLE				1
 #define DISABLE				0
 
