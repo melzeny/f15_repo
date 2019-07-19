@@ -5,8 +5,10 @@
  *      Author: Abou Elsharaf
  */
 #include "../utils/Std_Types.h"
+#include "../utils/Interrupts.h"
 #include "../MCAL/TIMER0/TIMER0.h"
 #include "../MCAL/GLOBAL_INTERRUPT/Global_Int.h"
+
 #include "../config/Scheduler_cfg.h"
 #include "Scheduler_types.h"
 #include "Scheduler.h"
@@ -54,13 +56,16 @@ void ISR(TIMER0_COMP)
 	static uint32 counter = 0;
 	for(i=0;i<SCHEDULER_MAX_NUMBER_OF_TASKS;i++)
 	{
-		if(counter % TasksArr[i].Periodicity == 0)
+		if(TasksArr[i].Ptr2task != 0)
 		{
-			if(TasksArr[i].Status == STD_active)
+			if(counter % TasksArr[i].Periodicity == 0)
 			{
-				TasksArr[i].Ptr2task();
-			}
+				if(TasksArr[i].Status == STD_active)
+				{
+					TasksArr[i].Ptr2task();
+				}
 
+			}
 		}
 	}
 }

@@ -16,7 +16,7 @@
 #include "../EHAL/KP/KP.h"
 #include "../EHAL/BcdSevSeg/BcdSevSeg.h"
 #include "../utils/Interrupts.h"
-
+#include "../Scheduler/Scheduler.h"
 
 void Task_refreshBcdSevSeg(void)
 {
@@ -38,7 +38,17 @@ void Task_InputPassword(void)
 
 void lab_07_scheduler(void)
 {
+	PORT_init();
+	Scheduler_createTask(0,Task_refreshBcdSevSeg,1,STD_active );
+	Scheduler_createTask(1,Task_updateCounter,100,STD_active );
+	Scheduler_createTask(2,Task_InputPassword,3,STD_active );
+	Scheduler_init();
+	while(1)
+	{
 
+
+
+	}
 
 
 
