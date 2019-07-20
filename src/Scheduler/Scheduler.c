@@ -68,4 +68,5 @@ void ISR(TIMER0_COMP)
 			}
 		}
 	}
+	counter++;
 }
