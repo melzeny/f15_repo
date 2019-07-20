@@ -27,6 +27,4 @@ void lab_01_dio(void)
 		}
 		PrevStatus = CurrentStatus;
 	}
-
-
 }
