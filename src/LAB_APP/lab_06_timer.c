@@ -41,7 +41,7 @@ void lab_06_timer(void)
 		PrevPressed = CurrPressedButton;
 	}
 }
-
+#if 0
 void ISR(TIMER2_COMP)
 {
 	static uint8 counter =0;
@@ -70,3 +70,4 @@ void ISR(TIMER2_COMP)
 	}
 
 }
+#endif
