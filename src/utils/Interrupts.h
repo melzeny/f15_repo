@@ -9,6 +9,9 @@
 #define F15_REPO_SRC_UTILS_INTERRUPTS_H_
 
 
+#define TIMER2_COMP			__vector_4
+#define TIMER2_OVF			__vector_5
+
 #define TIMER0_COMP			__vector_10
 #define TIMER0_OVF			__vector_11
 

@@ -6,6 +6,7 @@
  */
 
 #include "../MCAL/TIMER2/TIMER2.h"
+#include "../MCAL/PORT_DRIVER/PORT.h"
 #include "../MCAL/DIO/DIO.h"
 #include "../utils/Interrupts.h"
 
