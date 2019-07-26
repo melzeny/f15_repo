@@ -6,7 +6,7 @@
  */
 /*==============================================================
  * DEFINES
-/*==============================================================*/
+==============================================================*/
 #define TIMER1_MODE_NORAMAL 							0
 
 #define TIMER1_MODE_PHASE_CORRECT_8                     1
@@ -44,17 +44,18 @@
 
 /*==============================================================
  * INCLUDES
-/*==============================================================*/
+ ============================================================== */
 #include "../../utils/Std_Types.h"
 #include "../../utils/Bit_Math.h"
+#include "../../utils/Interrupts.h"
 
 #include "TIMER1_hw.h"
 #include "Timer1_types.h"
-#include "TIMER1_cfg.h"
+#include "../../config/TIMER1_cfg.h"
 #include "TIMER1.h"
 /*==============================================================
  * FUNCTION DEFINATIONS
-/*==============================================================*/
+==============================================================*/
 void TIMER1_init(void)
 {
 	/* set mode - TCCR1A */
@@ -176,3 +177,21 @@ void TIMER1_setCompareSteps(uint16 COMPA,uint16 COMPB)
 	OCR1B = COMPB;
 
 }
+
+void ISR(TIMER1_COMPA)
+{
+
+}
+void ISR(TIMER1_COMPB)
+{
+
+}
+void ISR(TIMER1_OVF)
+{
+
+}
+void ISR(TIMER1_CAPT)
+{
+
+}
+
