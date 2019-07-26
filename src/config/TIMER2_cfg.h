@@ -30,7 +30,15 @@
  * TIMER2_MODE_CTC_msk
  * TIMER2_MODE_FAST_PWM_msk
  * */
-#define TIMER2_MODE_TYPE_SELECTOR_msk		TIMER2_MODE_CTC_msk
+#define TIMER2_MODE_TYPE_SELECTOR_msk		TIMER2_MODE_NORMAL_msk
 
+
+/*
+ * Please choose OCU mode configuration
+ * TIMER2_OCU_MODE_DISCONNECTED_msk
+ * TIMER2_OCU_MODE_INVERTING_msk     (set on compare match)
+ * TIMER2_OCU_MODE_NONINVERTING_msk  (clr on compare match)
+ * */
+#define TIMER2_OCU_MODE_SELECTOR			TIMER2_OCU_MODE_INVERTING_msk
 
 #endif /* F15_REPO_SRC_CONFIG_TIMER2_CFG_H_ */

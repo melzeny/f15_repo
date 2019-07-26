@@ -34,6 +34,11 @@
 #define TIMER2_PWM_OC2_NON_INVERTING	0b00100000
 #define TIMER2_PWM_OC2_INVERTING		0b00110000
 
+#define TIMER2_OCU_MODE_clr_msk					0b11001111
+#define TIMER2_OCU_MODE_DISCONNECTED_msk		0b00000000
+#define TIMER2_OCU_MODE_INVERTING_msk			0b00110000
+#define TIMER2_OCU_MODE_NONINVERTING_msk		0b00100000
+
 /* =============================================
  * INCLUDES
  * ============================================*/
@@ -56,6 +61,10 @@ void TIMER2_init(void)
 	/* set timer mode */
 	TCCR2 &= TIMER2_MODE_CLR_msk;
 	TCCR2 |= TIMER2_MODE_TYPE_SELECTOR_msk;
+
+	/*set OCU mode */
+	TCCR2 &= TIMER2_OCU_MODE_clr_msk;
+	TCCR2 |= TIMER2_OCU_MODE_SELECTOR;
 
 	/*set Steps to count */
 	TIMER2_setCounterSteps(TIMER2_STEPS_TO_COUNT);
