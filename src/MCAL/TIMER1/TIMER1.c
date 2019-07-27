@@ -42,6 +42,10 @@
 #define TIMER1_PRESCALER_256_msk 				0b00000100
 #define TIMER1_PRESCALER_1024_msk				0b00000101
 
+/*=============================================================
+ * STATIC GLOBAL VARIABLES
+ *============================================================*/
+static uint16 Ton_steps,Tpwm_steps;
 /*==============================================================
  * INCLUDES
  ============================================================== */
@@ -120,7 +124,7 @@ void TIMER1_init(void)
 #endif
 
 	/*set noise cancellation for ICU config*/
-	TCCR1B |= TIMER1_NOICE_CANCEL_EN<<7;
+	TCCR1B |= TIMER1_NOISE_CANCEL_EN<<7;
 
 	/*set ICU Edge */
 	TCCR1B |= TIMER1_ICU_EDGE_SELECTOR<<6;
@@ -177,21 +181,33 @@ void TIMER1_setCompareSteps(uint16 COMPA,uint16 COMPB)
 	OCR1B = COMPB;
 
 }
-
-void ISR(TIMER1_COMPA)
+void TIMER1_ReadPwm(uint32* Freq_hz_Ptr, uint8* DutyCyclePtr)
 {
-
+	*Freq_hz_Ptr = 1000000 /( Tpwm_steps * TIMER1_SINGLE_STEP_TIME_us);
+	*DutyCyclePtr = 100 * (Ton_steps / Tpwm_steps) ;
 }
-void ISR(TIMER1_COMPB)
-{
 
-}
-void ISR(TIMER1_OVF)
-{
-
-}
 void ISR(TIMER1_CAPT)
 {
+	static uint8 flag =0;
+	if(flag == 0)
+	{
+		TCNT1 = 0; /*t0_steps = 0*/
+		Clr_Bit(TCCR1B,6); /*set next edge to be Falling Edge */
+		flag = 1;
+	}
+	else if(flag == 1)
+	{
+		Ton_steps = ICR;
+		Set_Bit(TCCR1B,6); /* set next edge to be Rising Edge */
+		flag = 2;
+	}
+	else if(flag == 2)
+	{
+		Tpwm_steps = ICR;
+		 /* keep next edge to be Rising Edge */
+		flag = 0;
+	}
 
 }
 
