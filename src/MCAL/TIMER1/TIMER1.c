@@ -42,10 +42,7 @@
 #define TIMER1_PRESCALER_256_msk 				0b00000100
 #define TIMER1_PRESCALER_1024_msk				0b00000101
 
-/*=============================================================
- * STATIC GLOBAL VARIABLES
- *============================================================*/
-static uint16 Ton_steps,Tpwm_steps;
+
 /*==============================================================
  * INCLUDES
  ============================================================== */
@@ -57,6 +54,13 @@ static uint16 Ton_steps,Tpwm_steps;
 #include "Timer1_types.h"
 #include "../../config/TIMER1_cfg.h"
 #include "TIMER1.h"
+
+/*=============================================================
+ * STATIC GLOBAL VARIABLES
+ *============================================================*/
+static uint16 Ton_steps,Tpwm_steps;
+static uint32 TIMER1_Freq_Hz=0;
+static uint8  TIMER1_DutyCycle=0;
 /*==============================================================
  * FUNCTION DEFINATIONS
 ==============================================================*/
@@ -183,8 +187,8 @@ void TIMER1_setCompareSteps(uint16 COMPA,uint16 COMPB)
 }
 void TIMER1_ReadPwm(uint32* Freq_hz_Ptr, uint8* DutyCyclePtr)
 {
-	*Freq_hz_Ptr = 1000000 /( Tpwm_steps * TIMER1_SINGLE_STEP_TIME_us);
-	*DutyCyclePtr = 100 * (Ton_steps / Tpwm_steps) ;
+	*Freq_hz_Ptr = TIMER1_Freq_Hz;
+	*DutyCyclePtr = TIMER1_DutyCycle ;
 }
 
 void ISR(TIMER1_CAPT)
@@ -207,6 +211,10 @@ void ISR(TIMER1_CAPT)
 		Tpwm_steps = ICR;
 		 /* keep next edge to be Rising Edge */
 		flag = 0;
+
+		/*calc*/
+		TIMER1_Freq_Hz = 1000000 /( Tpwm_steps * TIMER1_SINGLE_STEP_TIME_us);
+		TIMER1_DutyCycle = 100 * (Ton_steps / Tpwm_steps) ;
 	}
 
 }
