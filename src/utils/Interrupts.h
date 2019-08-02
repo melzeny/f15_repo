@@ -20,7 +20,7 @@
 #define TIMER1_COMPA				__vector_7
 #define TIMER1_COMPB				__vector_8
 #define TIMER1_OVF					__vector_9
-
+#define ADC							__vector_16
 
 
 #define ISR(vect)			vect(void) __attribute__((signal,used));\

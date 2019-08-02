@@ -12,14 +12,14 @@
 
 const PORT_PinDirType PortCfg = {{
 
-	/*Pin_Dir_A0 */	DIR_OUTPUT,
-	/*Pin_Dir_A1 */	DIR_OUTPUT,
-	/*Pin_Dir_A2 */	DIR_OUTPUT,
-	/*Pin_Dir_A3 */	DIR_OUTPUT,
-	/*Pin_Dir_A4 */	DIR_OUTPUT,
-	/*Pin_Dir_A5 */	DIR_OUTPUT,
-	/*Pin_Dir_A6 */	DIR_OUTPUT,
-	/*Pin_Dir_A7 */	DIR_OUTPUT,
+	/*Pin_Dir_A0 */	DIR_INPUT,
+	/*Pin_Dir_A1 */	DIR_INPUT,
+	/*Pin_Dir_A2 */	DIR_INPUT,
+	/*Pin_Dir_A3 */	DIR_INPUT,
+	/*Pin_Dir_A4 */	DIR_INPUT,
+	/*Pin_Dir_A5 */	DIR_INPUT,
+	/*Pin_Dir_A6 */	DIR_INPUT,
+	/*Pin_Dir_A7 */	DIR_INPUT,
 
 	/*Pin_Dir_B0 */	DIR_OUTPUT,
 	/*Pin_Dir_B1 */	DIR_OUTPUT,

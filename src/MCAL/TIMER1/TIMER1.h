@@ -16,4 +16,5 @@ void TIMER1_enInterrupt(TIMER1_IntType Int);
 void TIMER1_diInterrupt(TIMER1_IntType Int);
 void TIMER1_setCompareSteps(uint16 COMPA,uint16 COMPB);
 void TIMER1_ReadPwm(uint32* Freq_hz_Ptr, uint8* DutyCyclePtr);
+uint32 TIMER1_getHiLevelTime(void);
 #endif /* F15_REPO_SRC_MCAL_TIMER1_TIMER1_H_ */
