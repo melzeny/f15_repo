@@ -11,9 +11,9 @@
 /*
  * CFG
  * */
-#define ULS_TRIGGER_TASK_INDEX				2
+#define ULS_TRIGGER_TASK_INDEX				8
 #define ULS_TRIGGER_TASK_PERIODICITY		30
-#define ULS_TRIGGER_PIN						Dio_Channel_A0
+#define ULS_TRIGGER_PIN						Dio_Channel_A1
 
 
 #endif /* F15_REPO_SRC_CONFIG_ULS_CFG_H_ */

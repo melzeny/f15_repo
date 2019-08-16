@@ -8,14 +8,14 @@
 #ifndef F15_REPO_SRC_CONFIG_KP_CFG_H_
 #define F15_REPO_SRC_CONFIG_KP_CFG_H_
 
-#define KP_PIN_ROW_0							Dio_Channel_C7
-#define KP_PIN_ROW_1							Dio_Channel_C6
-#define KP_PIN_ROW_2							Dio_Channel_C5
-#define KP_PIN_ROW_3							Dio_Channel_C4
+#define KP_PIN_ROW_0							Dio_Channel_B7
+#define KP_PIN_ROW_1							Dio_Channel_B6
+#define KP_PIN_ROW_2							Dio_Channel_B5
+#define KP_PIN_ROW_3							Dio_Channel_B4
 
 
-#define KP_PIN_COL_0							Dio_Channel_C3
-#define KP_PIN_COL_1							Dio_Channel_C2
+#define KP_PIN_COL_0							Dio_Channel_A3
+#define KP_PIN_COL_1							Dio_Channel_A2
 #define KP_PIN_COL_2							Dio_Channel_C1
 #define KP_PIN_COL_3							Dio_Channel_C0
 

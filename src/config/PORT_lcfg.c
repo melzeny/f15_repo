@@ -32,8 +32,8 @@ const PORT_PinDirType PortCfg = {{
 
 	/*Pin_Dir_C0 */	DIR_INPUT,
 	/*Pin_Dir_C1 */	DIR_INPUT,
-	/*Pin_Dir_C2 */	DIR_INPUT,
-	/*Pin_Dir_C3 */	DIR_INPUT,
+	/*Pin_Dir_C2 */	DIR_OUTPUT,
+	/*Pin_Dir_C3 */	DIR_OUTPUT,
 	/*Pin_Dir_C4 */	DIR_OUTPUT,
 	/*Pin_Dir_C5 */	DIR_OUTPUT,
 	/*Pin_Dir_C6 */	DIR_OUTPUT,
