@@ -40,6 +40,12 @@ typedef enum
 #define ENABLE				1
 #define DISABLE				0
 
+typedef enum
+{
+	STD_ok,
+	STD_not_ok
+}STD_RetType;
+
 typedef void(*Ptr2FuncType)(void);
 
 #endif /* UTILS_STD_TYPES_H_ */

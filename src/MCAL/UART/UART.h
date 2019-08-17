@@ -12,8 +12,8 @@
 #include "UART_types.h"
 
 void UART_init(void);
-void UART_sendMsg(const uint8 Msg[],uint8 MsgLength);
-void UART_receiveMsg(uint8* MsgPtr, uint8* MsgLength);
+STD_RetType UART_sendMsg(const uint8 Msg[],uint8 MsgLength);
+void UART_getReceiveMsg(uint8* MsgPtr, uint8* MsgLength);
 void UART_enInterrupt(UART_IntType Interrupt);
 void UART_diInterrupt(UART_IntType Interrupt);
 
