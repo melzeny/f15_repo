@@ -21,6 +21,8 @@
 #define UART_STOP_BIT_clr_msk				0b11110111
 #define UART_STOP_BIT_1   					0b00000000
 #define UART_STOP_BIT_2   					0b00001000
+
+#define UART_UCSRC_ACCESS_msk				0b10000000
 /*============================================================
  * INCLUDES
  *============================================================ */
@@ -49,21 +51,11 @@ static boolean UART_MSG_TxCompleteFlag = true;
 
 void UART_init(void)
 {
-	UCSRC = 0x80 | UART_DATA_SIZE_SELECTOR | UART_PARITY_MODE_SELECTOR |
+	UCSRC = UART_UCSRC_ACCESS_msk     |
+			UART_DATA_SIZE_SELECTOR   |
+			UART_PARITY_MODE_SELECTOR |
 			UART_STOP_BIT_SELECTOR;
-#if 0
-	Set_Bit(UCSRC,7);
-	/*define Data size in UART Frame */
-	UCSRC &= UART_DATA_clr_msk;
-	UCSRC |= UART_DATA_SIZE_SELECTOR ;
-	/*define parity mode */
-	UCSRC &= UART_PARITY_clr_msk;
-	UCSRC |= UART_PARITY_MODE_SELECTOR ;
 
-	/*define stop bits number */
-	UCSRC &= UART_STOP_BIT_clr_msk;
-	UCSRC |= UART_STOP_BIT_SELECTOR;
-#endif
 	/*set baud rate*/
 	UBRRL = UART_BAUDE_RATE_UBRR;
 

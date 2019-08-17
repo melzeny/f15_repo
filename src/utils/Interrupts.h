@@ -20,6 +20,7 @@
 #define TIMER1_OVF					__vector_9
 #define TIMER0_COMP					__vector_10
 #define TIMER0_OVF					__vector_11
+#define SPI_STC						__vector_12
 #define USART_RXC					__vector_13
 #define USART_UDRE					__vector_14
 #define USART_TXC					__vector_15
