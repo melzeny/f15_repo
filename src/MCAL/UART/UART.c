@@ -8,19 +8,19 @@
  * DEFINES
  * ============================================================*/
 #define UART_DATA_clr_msk                   0b11111001
-#define UART_DATA_SIZE_5                    0b10000000
-#define UART_DATA_SIZE_6                    0b10000010
-#define UART_DATA_SIZE_7                    0b10000100
-#define UART_DATA_SIZE_8                    0b10000110
+#define UART_DATA_SIZE_5                    0b00000000
+#define UART_DATA_SIZE_6                    0b00000010
+#define UART_DATA_SIZE_7                    0b00000100
+#define UART_DATA_SIZE_8                    0b00000110
 
 #define UART_PARITY_clr_msk                 0b11001111
-#define UART_PARITY_MODE_DISABLE            0b10000000
-#define UART_PARITY_MODE_EVEN               0b10100000
-#define UART_PARITY_MODE_ODD                0b10110000
+#define UART_PARITY_MODE_DISABLE            0b00000000
+#define UART_PARITY_MODE_EVEN               0b00100000
+#define UART_PARITY_MODE_ODD                0b00110000
 
 #define UART_STOP_BIT_clr_msk				0b11110111
-#define UART_STOP_BIT_1   					0b10000000
-#define UART_STOP_BIT_2   					0b10001000
+#define UART_STOP_BIT_1   					0b00000000
+#define UART_STOP_BIT_2   					0b00001000
 /*============================================================
  * INCLUDES
  *============================================================ */
@@ -41,7 +41,7 @@ UART_Rx_Buffer[UART_RX_BUFFER_SIZE],
 UART_TX_Index,
 UART_Rx_Index,
 UART_Msg_TxLength;
-static boolean UART_MSG_TxCompleteFlag = false;
+static boolean UART_MSG_TxCompleteFlag = true;
 
 /*============================================================
  * FUNCTION DEFINITIONS
@@ -49,17 +49,21 @@ static boolean UART_MSG_TxCompleteFlag = false;
 
 void UART_init(void)
 {
+	UCSRC = 0x80 | UART_DATA_SIZE_SELECTOR | UART_PARITY_MODE_SELECTOR |
+			UART_STOP_BIT_SELECTOR;
+#if 0
+	Set_Bit(UCSRC,7);
 	/*define Data size in UART Frame */
-	UCSRC = (UCSRC|0b10000000) & UART_DATA_clr_msk;
+	UCSRC &= UART_DATA_clr_msk;
 	UCSRC |= UART_DATA_SIZE_SELECTOR ;
 	/*define parity mode */
-	UCSRC = (UCSRC|0b10000000) & UART_PARITY_clr_msk;
+	UCSRC &= UART_PARITY_clr_msk;
 	UCSRC |= UART_PARITY_MODE_SELECTOR ;
 
 	/*define stop bits number */
-	UCSRC = (UCSRC|0b10000000) & UART_STOP_BIT_clr_msk;
+	UCSRC &= UART_STOP_BIT_clr_msk;
 	UCSRC |= UART_STOP_BIT_SELECTOR;
-
+#endif
 	/*set baud rate*/
 	UBRRL = UART_BAUDE_RATE_UBRR;
 
@@ -101,7 +105,7 @@ void UART_getReceiveMsg(uint8* MsgPtr, uint8* MsgLengthPtr)
 	uint8 i;
 	for (i = 0; i < UART_Rx_Index; ++i)
 	{
-		MsgPtr[i] = UART_Tx_Buffer[i];
+		MsgPtr[i] = UART_Rx_Buffer[i];
 	}
 	*MsgLengthPtr = UART_Rx_Index;
 	UART_Rx_Index = 0;
